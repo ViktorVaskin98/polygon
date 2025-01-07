@@ -1,0 +1,35 @@
+import numpy as np # любимая библиотека numpy
+
+def get_diagonal_sum(matrix):
+    '''
+    Функция для нахождения суммы элементов главной диагонали матрицы.
+    :param matrix: двумерный numpy массив
+    :return: сумма элементов главной диагонали
+    '''
+    return np.trace(matrix)  # собственно функция решает лабу
+
+
+def run_tests():
+    # Тест 1. Матрица 2x2 с элементами [[1, 1], [1, 2]]
+    matrix1 = np.array([[1, 1], [1, 2]])
+    assert get_diagonal_sum(matrix1) == 3, 'Ошибка в тесте 1'
+
+    # Тест 2. Матрица 3x3 с элементами [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    matrix2 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+    assert get_diagonal_sum(matrix2) == 15, 'Ошибка в тесте 2'
+
+    # Тест 3. Единичная матрица 3x3
+    matrix3 = np.eye(3)
+    assert get_diagonal_sum(matrix3) == 3, 'Ошибка в тесте 3'
+
+    # Тест 4. Матрица 1x1 с элементом [[10]]
+    matrix4 = np.array([[10]])
+    assert get_diagonal_sum(matrix4) == 10, 'Ошибка в тесте 4'
+
+    # Тест 5. Матрица 4x4 с нулями на всех позициях
+    matrix5 = np.zeros((4, 4))
+    assert get_diagonal_sum(matrix5) == 0, 'Ошибка в тесте 5'
+
+    print('Все тесты пройдены успешно!')
+    
+run_tests()
